@@ -125,7 +125,7 @@ public class Store extends Application {
 
                 textArea.setText("Number of loaded games is : "+gameList.size());
             } catch (IOException ex) {
-                textArea.setText("Faild to load games ! ");  // File Not Loaded Completely
+                textArea.setText("Faild to load games ! ");
             }
 
 
@@ -195,6 +195,8 @@ public class Store extends Application {
                     gameList.add(new ConsoleVideoGame(name,genre,price,"ps4"));
                 else if(rbXBOXadd.isSelected())
                     gameList.add(new ConsoleVideoGame(name,genre,price,"xbone"));
+                else
+                    gameList.add(new ConsoleVideoGame(name,genre,price,"newGame"));
 
                 textArea.setText("Game successfully added !");
             }catch (NumberFormatException e1) {

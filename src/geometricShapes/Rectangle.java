@@ -17,6 +17,7 @@ public class Rectangle extends Shapes {
         this.height = height;
     }
 
+
     public double getWidth() {
         return width;
     }
@@ -41,4 +42,10 @@ public class Rectangle extends Shapes {
 
 
     }
+
+
+
+
+
+
 }

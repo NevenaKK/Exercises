@@ -83,10 +83,16 @@ public class Hotel extends Application {
                     else
                         rooms.add(new PremiumRoom(number, price, structureRoom));
 
-
                 }
             } catch (IOException ex) {
                 ex.printStackTrace();
+            }
+
+            textArea.setText("\nAll rooms in hotel : \n\n");
+
+            for(Room r:rooms){
+                textArea.appendText(r.toString());
+
             }
 
         });

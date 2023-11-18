@@ -1,9 +1,10 @@
 package hotelReservation;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public abstract class Room {
+
     private int number;
     private int price;
     private int structureRoom;
@@ -13,7 +14,7 @@ public abstract class Room {
         this.number = number;
         this.price = price;
         this.structureRoom = structureRoom;
-        this.booked = new TreeMap<>();
+        this.booked = new HashMap<>();
     }
 
     public int getNumber() {
@@ -28,13 +29,14 @@ public abstract class Room {
         return structureRoom;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public Map<Period, Guest> getBooked() {
         return booked;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
     public abstract boolean putGuest (Period period, Guest guest);
 

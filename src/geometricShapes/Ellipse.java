@@ -30,13 +30,13 @@ public class Ellipse extends Shapes{
     @Override
     public double getArea() {
         double tmp =a*b*Math.PI;
-        return (double) Math.round(tmp * 100) /100;
+        return Double.parseDouble(df.format(tmp));
     }
 
     @Override
     public double getPerimeter() {
         double tmp =Math.PI*(3*(a+b)-Math.sqrt((3*a+b)*(a+3*b)));
-        return (double) Math.round(tmp * 100) /100;
+        return Double.parseDouble(df.format(tmp));
     }
 
     @Override

@@ -8,9 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println();
-        System.out.println("Array of shapes : ");
-        System.out.println();
+        System.out.println("\nArray of shapes : ");
 
         Shapes[] niz = {
                 new Rectangle(2, 3),
@@ -23,38 +21,44 @@ public class Main {
         for (Shapes el : niz)
             System.out.println(el);
 
+
         List<Shapes> shapes = new ArrayList<>();
         shapes.add(new Rectangle(2, 3));
-        shapes.add(new Rectangle(new Point(3, 6), 3, 3));
-        shapes.add(new Circle(new Point(3, 9), 7));
+        shapes.add(new Square(new Point(3, 6), 1));
+        shapes.add(new Circle(new Point(3, 9), 1));
         shapes.add(new Rectangle(new Point(3, 4), 7, 3));
         shapes.add(new Circle(new Point(2, 9), 6));
-        shapes.add(new Circle(new Point(2, 9), 3));
+        shapes.add(new Ellipse(new Point(2, 9), 9,2));
         shapes.add(new Rectangle(new Point(1, 1), 3, 9));
+        shapes.add(new Triangle(new Point(1, 3), new Point(3, 5), new Point(7, 3)));
 
-        System.out.println();
-        System.out.println("Sorted shapes : ");
-        System.out.println();
+
+        System.out.println("\nSorted shapes : ");
 
         Collections.sort(shapes);
         for (Shapes el : shapes)
             System.out.println(el);
 
-        System.out.println();
-        System.out.println("Sorted points (centre of shapes) : ");
-        System.out.println();
+
+        System.out.println("\nSorted points (centre of shapes) : ");
+
 
         List<Point> points = new ArrayList<>();
-        for (int i = 0; i < shapes.size(); i++) {
-            points.add(shapes.get(i).getCentre());
-        }
+        for (Shapes s : shapes)
+            points.add(s.getCentre());
 
-        Collections.sort(points, Point.comaratorByYthenX);
-        for (Point el : points)
-            System.out.println(el);
+        Collections.sort(points,Point.comparatorByXthenY);
+        for(Point p:points)
+            System.out.println(p);
 
 
     }
 
 
+
+
+
+
+
 }
+

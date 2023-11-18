@@ -11,15 +11,13 @@ public class PremiumRoom extends Room {
     public boolean putGuest(Period period, Guest guest) {
         boolean busy = false;
 
-        for (Period app : this.getBooked().keySet()) {
-            if (app.overlaps(period))
+        for (Period per : this.getBooked().keySet()) {
+            if (per.overlaps(period))
                 busy = true;
         }
-        int priceRoom=getPrice();
-        if (guest.isPremium())
-            priceRoom*= 0.85;
+        setPrice((int)(getPrice()*0.85));
 
-        if (!busy && priceRoom <= guest.getBudget()) {
+        if (!busy && getPrice() <= guest.getBudget()) {
             getBooked().put(period,guest);
             return true;
         }else

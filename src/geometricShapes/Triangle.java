@@ -1,14 +1,11 @@
 package geometricShapes;
 
-import java.text.DecimalFormat;
-
 public class Triangle extends Shapes{
 
-    DecimalFormat df=new DecimalFormat("#.##");
-    private Point a,b,c;
+    private Point A,B,C;
 
-    public Triangle(Point a, Point b, Point c) {
-        init(a,b,c);
+    public Triangle(Point A,Point B,Point C) {
+        init(A,B,C);
     }
 
     public Triangle(Point centre, Point a, Point b, Point c) {
@@ -16,32 +13,32 @@ public class Triangle extends Shapes{
         init(a,b,c);
     }
 
-    private void init(Point a,Point b,Point c){
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    private void init(Point A,Point B,Point C){
+        this.A = A;
+        this.B = B;
+        this.C = C;
     }
 
     public Point getA() {
-        return a;
+        return A;
     }
 
     public Point getB() {
-        return b;
+        return B;
     }
 
     public Point getC() {
-        return c;
+        return C;
     }
 
     public double getAB(){
-        return Double.parseDouble(df.format(a.distance(b)));
+        return Double.parseDouble(df.format(A.distance(B)));
     }
     public double getAC(){
-        return Double.parseDouble(df.format(a.distance(c)));
+        return Double.parseDouble(df.format(A.distance(C)));
     }
     public double getBC(){
-        return Double.parseDouble(df.format(c.distance(b)));
+        return Double.parseDouble(df.format(C.distance(B)));
     }
 
 
@@ -50,7 +47,7 @@ public class Triangle extends Shapes{
         double s=(getAB()+getBC()+getAC())/2.0;
         double tmp= Math.sqrt(s*(s-getAC())*(s-getBC())*(s-getAB()));
 
-        return (double) Math.round(tmp*100)/100;
+        return Double.parseDouble(df.format(tmp));
     }
 
     @Override
